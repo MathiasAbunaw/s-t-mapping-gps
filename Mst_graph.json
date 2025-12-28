@@ -1,0 +1,17 @@
+{
+    "nodes": [ 
+        { "id": "cs", "name": "CS Building" },
+        { "id": "library", "name": "Library" },
+        { "id": "havener", "name": "Havener Center" },
+        { "id": "butler", "name": "Butler-Carlton" },
+        { "id": "hss", "name": "HSS" }
+            
+    ],
+    "edges": [
+        {"from" : "cs", "to": "library", "distance": 130},
+        { "from": "library", "to": "havener", "distance": 210 },
+        { "from": "cs", "to": "butler", "distance": 180 },
+        { "from": "butler", "to": "hss", "distance": 160 },
+        { "from": "hss", "to": "havener", "distance": 220 }
+    ]
+}
