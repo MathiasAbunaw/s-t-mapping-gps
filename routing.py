@@ -21,7 +21,10 @@ def get_neighborhood(building_id):
 def build_graph():
     graph = {}
     for i in nodes:
-        graph[i['id']] = get_neighborhood(i['id'])
+        NeighDista_dic_ = {}
+        for j in get_neighborhood(i['id']):
+            NeighDista_dic_[j] = get_distance(i['id'], j)
+        graph[i['id']] = NeighDista_dic_
     return graph
 def dijkstra(graph, start, end):
     distance = {}
@@ -47,7 +50,7 @@ def dijkstra(graph, start, end):
         else:
             visited.add(current)
             print(f'visiting: {current}, Distance: {min_distance}')
-        for k in graph[current]:
+        for k in graph[current].keys():
             candidate_distance = graph[current][k] + distance[current]
             if candidate_distance < distance[k]:
                 distance[k] = candidate_distance
@@ -63,7 +66,7 @@ def recostruction_path(previous, start, end):
             break
         current = previous[current]
     path.reverse()
-    return
+    return path
 def get_distance(Loca1, Loca2):
     FirstPoint = []
     SecondPoint = []
@@ -77,11 +80,8 @@ def get_distance(Loca1, Loca2):
     return math.dist(FirstPoint, SecondPoint)
 
 if __name__ == "__main__":
-    # = input("Enter a building you would like: ").strip()
-    #distance, previous = dijkstra(build_graph(), "cs", 'havener')
-    #print(previous)
-   # print(f'Shortest path distance: {distance['havener']}')
-   # print(recostruction_path(previous, "cs", 'havener'))
-   # print(get_distance('cs', 'library'))
-    print(get_neighborhood('havener'))
-    print(build_graph())
+    distance, previous = dijkstra(build_graph(), "cs", 'havener')
+    print(previous)
+    print(f'Shortest path distance: {distance['havener']}')
+    print(recostruction_path(previous, "cs", 'havener'))
+    print(get_distance('cs', 'havener'))
