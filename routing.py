@@ -72,14 +72,18 @@ def get_distance(Loca1, Loca2):
     SecondPoint = []
     for i in nodes:
         if i['id'] == Loca1:
-            FirstPoint.append(i['x'])
-            FirstPoint.append(i['y'])
+            FirstPoint.append(i['lat'])
+            FirstPoint.append(i['long'])
         elif i['id'] == Loca2:
-            SecondPoint.append(i['x'])
-            SecondPoint.append(i['y'])
+            SecondPoint.append(i['lat'])
+            SecondPoint.append(i['long'])
     return math.dist(FirstPoint, SecondPoint)
+def haversine_distance(firstSet, SecondSet):
+    
 
 if __name__ == "__main__":
+    curLoca = input("Enter your current location")
+    Destination = input("Enter your destination you would like to go")
     distance, previous = dijkstra(build_graph(), "cs", 'havener')
     print(previous)
     print(f'Shortest path distance: {distance['havener']}')

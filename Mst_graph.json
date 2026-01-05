@@ -1,10 +1,10 @@
 {
     "nodes": [ 
-        { "id": "cs", "name": "CS Building", "x": 3, "y" : 5 },
-        { "id": "library", "name": "Library", "x": 2, "y": 10},
-        { "id": "havener", "name": "Havener Center", "x": 5, "y": 7 },
-        { "id": "butler", "name": "Butler-Carlton", "x": 8, "y": 4},
-        { "id": "hss", "name": "HSS", "x" : 8, "y": 7}
+        { "id": "cs", "name": "CS Building", "lat": 3, "long" : 5 },
+        { "id": "library", "name": "Library", "lat": 2, "long": 10},
+        { "id": "havener", "name": "Havener Center", "lat": 5, "long": 7 },
+        { "id": "butler", "name": "Butler-Carlton", "lat": 8, "long": 4},
+        { "id": "hss", "name": "HSS", "lat" : 8, "long": 7}
             
     ],
     "edges": [
