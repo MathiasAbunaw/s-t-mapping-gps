@@ -93,11 +93,23 @@ def haversine_distance(firstSet, SecondSet):
     c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
     distance = R * c
     return distance * 1000
+def Shortest_path(start, end):
+
+    distance, previous = dijkstra(build_graph(), start, end)
+    path = recostruction_path(previous, start, end)
+    return distance[end], path
+    
 if __name__ == "__main__":
-    curLoca = input("Enter your current location")
-    Destination = input("Enter your destination you would like to go")
+   # curLoca = input("Enter your current location")
+   # Destination = input("Enter your destination you would like to go")
     distance, previous = dijkstra(build_graph(), "cs", 'havener')
-    print(previous)
+
     print(f'Shortest path distance: {distance['havener']}')
     print(recostruction_path(previous, "cs", 'havener'))
     print(get_distance('cs', 'havener'))
+    dis, path = Shortest_path('cs', 'havener')
+    print(path)
+    print(dis)
+    print(get_distance('cs', 'havener'))
+
+    
