@@ -93,8 +93,20 @@ def haversine_distance(firstSet, SecondSet):
     c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
     distance = R * c
     return distance * 1000
-def Shortest_path(start, end):
+def direction(graph, path):
+    node = get_names()
+    print(f'Starting at {node[path[0]]}')
+    for i in range(len(path) - 1):
+        print(f'Walking to {node[path[i+1]]} ({graph[path[i]][path[i+1]]}m)')
+        if path[i+1] == path[-1]:
+            print(f'Arrived at {node[path[i+1]]}')
 
+def get_names():
+    names = {}
+    for nam in nodes:
+        names[nam['id']] = nam["name"]
+    return names 
+def Shortest_path(start, end):
     distance, previous = dijkstra(build_graph(), start, end)
     path = recostruction_path(previous, start, end)
     return distance[end], path
@@ -102,14 +114,9 @@ def Shortest_path(start, end):
 if __name__ == "__main__":
    # curLoca = input("Enter your current location")
    # Destination = input("Enter your destination you would like to go")
-    distance, previous = dijkstra(build_graph(), "cs", 'havener')
 
-    print(f'Shortest path distance: {distance['havener']}')
-    print(recostruction_path(previous, "cs", 'havener'))
-    print(get_distance('cs', 'havener'))
     dis, path = Shortest_path('cs', 'havener')
     print(path)
-    print(dis)
-    print(get_distance('cs', 'havener'))
-
+    direction(build_graph(), path)
+    print(f'Total distance: {dis} m')
     
