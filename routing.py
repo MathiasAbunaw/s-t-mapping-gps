@@ -1,5 +1,6 @@
 import json
 import math
+import folium
 with open('Mst_graph.json', 'r') as file:
     data = json.load(file)
 edges  = data['edges']
@@ -119,4 +120,5 @@ if __name__ == "__main__":
     print(path)
     direction(build_graph(), path)
     print(f'Total distance: {dis} m')
+    
     
